@@ -1,12 +1,16 @@
-# Ultimately, I will use dplyr, so the first part of my script was to make sure the package was installed.
+Explanation of the run_analysis.R script:
 
-# The second part of the script involved reading the various text files of the data and turning them into tables.  These include X_test.txt, y_test.txt, subject_test.txt, X_train.txt, y_train.txt, subject_train.txt, and varlabels.txt.  The last file is a list of the 561 variables in the raw data that ultimately made no difference for the tidy data.
+===================================
 
-# The third part of the script involved combining the tables into one giant data frame.  Using the dimensions of the tables for guidance, I first combined (with rbind) X_test and X_train, then used varlabels to create the names of the variables.  I likewise used rbind to combine y_test and y_train, giving it the name "Activity".  Using cbind, I then combined Subject, Activity, and the combined X_test/X_train data.  An indicator variable to separate the test data from the train data was also included at the end, though wasn't needed for the tidy data.
+    # Ultimately, I will use dplyr, so the first part of my script was to make sure the package was installed.
 
-# The fourth part of the script involved turning my data frame into a dplyr-ready table.  At this point, I renamed the values in Activity to more descriptive names ( 1 = WALKING, 2 = WALKING_UPSTAIRS, 3 = WALKING_DOWNSTAIRS, 4 = SITTING, 5 = STANDING, 6 = LAYING).  Finally, I removed most of the columns, keeping only the Subject, Activity, and the 66 variables involving means or standard deviations.
+    # The second part of the script involved reading the various text files of the data and turning them into tables.  These include X_test.txt, y_test.txt, subject_test.txt, X_train.txt, y_train.txt, subject_train.txt, and varlabels.txt.  The last file is a list of the 561 variables in the raw data that ultimately made no difference for the tidy data.
 
-# The fifth and final part of the script involved grouping the remaining data frame by subject, then by activity, then finding the mean for each of the remaining columns.  This file was then uploaded as my tidy data.  Each column represents a different variable (see the Code Book below for an explanation of the variables.), and each row represents each of the 30 subjects for each of the 6 activities.
+    # The third part of the script involved combining the tables into one giant data frame.  Using the dimensions of the tables for guidance, I first combined (with rbind) X_test and X_train, then used varlabels to create the names of the variables.  I likewise used rbind to combine y_test and y_train, giving it the name "Activity".  Using cbind, I then combined Subject, Activity, and the combined X_test/X_train data.  An indicator variable to separate the test data from the train data was also included at the end, though wasn't needed for the tidy data.
+
+    # The fourth part of the script involved turning my data frame into a dplyr-ready table.  At this point, I renamed the values in Activity to more descriptive names ( 1 = WALKING, 2 = WALKING_UPSTAIRS, 3 = WALKING_DOWNSTAIRS, 4 = SITTING, 5 = STANDING, 6 = LAYING).  Finally, I removed most of the columns, keeping only the Subject, Activity, and the 66 variables involving means or standard deviations.
+
+    # The fifth and final part of the script involved grouping the remaining data frame by subject, then by activity, then finding the mean for each of the remaining columns.  This file was then uploaded as my tidy data.  Each column represents a different variable (see the Code Book below for an explanation of the variables.), and each row represents each of the 30 subjects for each of the 6 activities.
 
 ==================================================
 
