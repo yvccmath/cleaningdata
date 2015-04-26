@@ -1,9 +1,8 @@
 install.packages("dplyr")
 library(dplyr)
 
-## Set working directory and upload the files necessary for this project.
+## Upload the files from the working directory that are necessary for this project.
 
-setwd("C:/Users/Greg/Desktop/coursera/UCI HAR Dataset/test")
 X_test <- read.table("test/X_test.txt")  # dim = 2947 x 561
 y_test <- read.table("test/y_test.txt")  # dim = 2947 x 1
 subject_test <- read.table("test/subject_test.txt")  # dim = 2947 X 1
